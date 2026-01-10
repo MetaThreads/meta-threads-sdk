@@ -45,8 +45,11 @@ class Post(BaseModel):
         if v is None:
             return None
         if isinstance(v, dict) and "data" in v:
-            return v["data"]
-        return v
+            data: list[dict[str, str]] = v["data"]
+            return data
+        if isinstance(v, list):
+            return v
+        return None
 
 
 class Reply(BaseModel):

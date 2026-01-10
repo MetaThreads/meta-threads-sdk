@@ -80,7 +80,7 @@ class AsyncWebhooksClient(BaseWebhooksClient):
         if response.status_code != 200:
             raise_for_error(data, response.status_code)
 
-        return data.get("success", False)
+        return bool(data.get("success", False))
 
     async def get_subscriptions(self) -> list[WebhookSubscription]:
         """Get current webhook subscriptions.

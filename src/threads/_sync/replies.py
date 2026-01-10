@@ -114,7 +114,7 @@ class RepliesClient(BaseRepliesClient):
         if response.status_code != 200:
             raise_for_error(data, response.status_code)
 
-        return data.get("success", False)
+        return bool(data.get("success", False))
 
     def unhide(self, reply_id: str) -> bool:
         """Unhide a previously hidden reply.
@@ -137,7 +137,7 @@ class RepliesClient(BaseRepliesClient):
         if response.status_code != 200:
             raise_for_error(data, response.status_code)
 
-        return data.get("success", False)
+        return bool(data.get("success", False))
 
     def get_user_replies(
         self,

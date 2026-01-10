@@ -71,7 +71,7 @@ def extract_id(response: JSON) -> str:
     Raises:
         KeyError: If 'id' is not in the response.
     """
-    return response["id"]
+    return str(response["id"])
 
 
 def prepare_request_params(

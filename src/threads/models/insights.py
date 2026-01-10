@@ -90,7 +90,11 @@ class UserInsightsResponse(BaseModel):
                     return insight.total_value.get("value")
                 if insight.values:
                     val = insight.values[0].get("value", 0)
-                    return int(val) if val is not None else 0
+                    if isinstance(val, int):
+                        return val
+                    if isinstance(val, str):
+                        return int(val)
+                    return 0
         return None
 
 

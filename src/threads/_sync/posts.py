@@ -276,7 +276,7 @@ class PostsClient(BasePostsClient):
             raise_for_error(data, response.status_code)
 
         logger.info(f"Successfully deleted post {post_id}")
-        return data.get("success", True)
+        return bool(data.get("success", True))
 
     def get_publishing_limit(self, user_id: str) -> PublishingLimit:
         """Get the user's publishing rate limit status.
