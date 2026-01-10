@@ -1,5 +1,5 @@
 [project]
-name = "threads-py"
+name = "meta-threads-sdk"
 version = "0.1.0"
 description = "Unofficial Python client for Meta's Threads API"
 readme = "README.md"
