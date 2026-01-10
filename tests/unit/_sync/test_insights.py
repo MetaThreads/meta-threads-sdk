@@ -17,7 +17,9 @@ class TestInsightsClient:
     @respx.mock
     def test_get_media_insights(self):
         """Test getting media insights."""
-        respx.get(url__startswith="https://graph.threads.net/v1.0/post_123/insights").mock(
+        respx.get(
+            url__startswith="https://graph.threads.net/v1.0/post_123/insights"
+        ).mock(
             return_value=httpx.Response(
                 200,
                 json={
@@ -45,7 +47,9 @@ class TestInsightsClient:
     @respx.mock
     def test_get_media_insights_with_specific_metrics(self):
         """Test getting specific media insights."""
-        respx.get(url__startswith="https://graph.threads.net/v1.0/post_123/insights").mock(
+        respx.get(
+            url__startswith="https://graph.threads.net/v1.0/post_123/insights"
+        ).mock(
             return_value=httpx.Response(
                 200,
                 json={
@@ -70,7 +74,9 @@ class TestInsightsClient:
     @respx.mock
     def test_get_media_insights_error(self):
         """Test getting media insights with error."""
-        respx.get(url__startswith="https://graph.threads.net/v1.0/post_123/insights").mock(
+        respx.get(
+            url__startswith="https://graph.threads.net/v1.0/post_123/insights"
+        ).mock(
             return_value=httpx.Response(
                 404,
                 json={
@@ -91,7 +97,9 @@ class TestInsightsClient:
     @respx.mock
     def test_get_user_insights(self):
         """Test getting user insights."""
-        respx.get(url__startswith="https://graph.threads.net/v1.0/user_123/threads_insights").mock(
+        respx.get(
+            url__startswith="https://graph.threads.net/v1.0/user_123/threads_insights"
+        ).mock(
             return_value=httpx.Response(
                 200,
                 json={
@@ -123,7 +131,9 @@ class TestInsightsClient:
     @respx.mock
     def test_get_user_insights_with_time_range(self):
         """Test getting user insights with time range."""
-        respx.get(url__startswith="https://graph.threads.net/v1.0/user_123/threads_insights").mock(
+        respx.get(
+            url__startswith="https://graph.threads.net/v1.0/user_123/threads_insights"
+        ).mock(
             return_value=httpx.Response(
                 200,
                 json={
@@ -152,7 +162,9 @@ class TestInsightsClient:
     @respx.mock
     def test_get_views(self):
         """Test getting view count convenience method."""
-        respx.get(url__startswith="https://graph.threads.net/v1.0/post_123/insights").mock(
+        respx.get(
+            url__startswith="https://graph.threads.net/v1.0/post_123/insights"
+        ).mock(
             return_value=httpx.Response(
                 200,
                 json={
@@ -172,7 +184,9 @@ class TestInsightsClient:
     @respx.mock
     def test_get_engagement(self):
         """Test getting engagement metrics."""
-        respx.get(url__startswith="https://graph.threads.net/v1.0/post_123/insights").mock(
+        respx.get(
+            url__startswith="https://graph.threads.net/v1.0/post_123/insights"
+        ).mock(
             return_value=httpx.Response(
                 200,
                 json={

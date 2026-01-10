@@ -88,10 +88,14 @@ class AsyncAuthClient(BaseAuthClient):
         data = response.json()
 
         if response.status_code != 200:
-            logger.error(f"Failed to get long-lived token: status={response.status_code}")
+            logger.error(
+                f"Failed to get long-lived token: status={response.status_code}"
+            )
             raise_for_error(data, response.status_code)
 
-        logger.info(f"Successfully obtained long-lived token (expires_in={data['expires_in']}s)")
+        logger.info(
+            f"Successfully obtained long-lived token (expires_in={data['expires_in']}s)"
+        )
         return LongLivedToken(
             access_token=data["access_token"],
             token_type=data.get("token_type", "bearer"),

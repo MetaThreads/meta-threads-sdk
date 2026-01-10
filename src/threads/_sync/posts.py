@@ -168,7 +168,9 @@ class PostsClient(BasePostsClient):
 
             elapsed = time.time() - start_time
             if elapsed >= max_wait_time:
-                logger.error(f"Container {container_id} timed out after {max_wait_time}s")
+                logger.error(
+                    f"Container {container_id} timed out after {max_wait_time}s"
+                )
                 raise ContainerError(
                     f"Container not ready after {max_wait_time}s "
                     f"(status: {status.status})"

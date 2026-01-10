@@ -3,9 +3,6 @@
 from __future__ import annotations
 
 import time
-from unittest.mock import patch
-
-import pytest
 
 from threads._utils.rate_limit import AsyncRateLimiter, RateLimiter
 

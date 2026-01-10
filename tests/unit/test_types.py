@@ -4,8 +4,6 @@ from __future__ import annotations
 
 from typing import Any
 
-import pytest
-
 from threads.types import (
     JSON,
     AsyncHTTPClient,
@@ -28,7 +26,10 @@ class TestTypeAliases:
 
     def test_headers_type(self):
         """Test Headers type alias accepts string dict."""
-        headers: Headers = {"Content-Type": "application/json", "Authorization": "Bearer token"}
+        headers: Headers = {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer token",
+        }
         assert isinstance(headers, dict)
         assert headers["Content-Type"] == "application/json"
 

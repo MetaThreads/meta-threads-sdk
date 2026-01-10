@@ -6,7 +6,6 @@ from typing import TYPE_CHECKING
 
 from threads.constants import Scope
 
-
 if TYPE_CHECKING:
     from threads import ThreadsClient
 

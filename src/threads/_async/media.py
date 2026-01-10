@@ -99,7 +99,9 @@ class AsyncMediaClient(BaseMediaClient):
         data = response.json()
 
         if response.status_code != 200:
-            logger.error(f"Failed to get container status: status={response.status_code}")
+            logger.error(
+                f"Failed to get container status: status={response.status_code}"
+            )
             raise_for_error(data, response.status_code)
 
         status = MediaContainerStatus.model_validate(data)

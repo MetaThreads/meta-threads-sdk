@@ -7,7 +7,7 @@ import pytest
 import respx
 
 from threads import ThreadsClient
-from threads.constants import ContainerStatus, ReplyControl
+from threads.constants import ReplyControl
 from threads.exceptions import ContainerError, ThreadsAPIError, ValidationError
 
 

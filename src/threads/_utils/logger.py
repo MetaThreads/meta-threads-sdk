@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import logging
 import sys
-from typing import Literal
 
 # Create the SDK logger
 logger = logging.getLogger("threads")

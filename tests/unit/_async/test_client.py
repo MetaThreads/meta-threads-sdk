@@ -107,7 +107,9 @@ class TestAsyncAuthClient:
     @respx.mock
     async def test_refresh_token(self):
         """Test async token refresh."""
-        respx.get(url__startswith="https://graph.threads.net/v1.0/refresh_access_token").mock(
+        respx.get(
+            url__startswith="https://graph.threads.net/v1.0/refresh_access_token"
+        ).mock(
             return_value=httpx.Response(
                 200,
                 json={
@@ -151,13 +153,25 @@ class TestAsyncPostsClient:
     @respx.mock
     async def test_get_user_posts(self):
         """Test async get user posts."""
-        respx.get(url__startswith="https://graph.threads.net/v1.0/user_123/threads").mock(
+        respx.get(
+            url__startswith="https://graph.threads.net/v1.0/user_123/threads"
+        ).mock(
             return_value=httpx.Response(
                 200,
                 json={
                     "data": [
-                        {"id": "post_1", "text": "Post 1", "media_type": "TEXT", "timestamp": "2024-01-15T10:30:00+0000"},
-                        {"id": "post_2", "text": "Post 2", "media_type": "TEXT", "timestamp": "2024-01-14T10:30:00+0000"},
+                        {
+                            "id": "post_1",
+                            "text": "Post 1",
+                            "media_type": "TEXT",
+                            "timestamp": "2024-01-15T10:30:00+0000",
+                        },
+                        {
+                            "id": "post_2",
+                            "text": "Post 2",
+                            "media_type": "TEXT",
+                            "timestamp": "2024-01-14T10:30:00+0000",
+                        },
                     ]
                 },
             )
@@ -175,9 +189,9 @@ class TestAsyncMediaClient:
     @respx.mock
     async def test_create_container(self):
         """Test async create container."""
-        respx.post(url__startswith="https://graph.threads.net/v1.0/user_123/threads").mock(
-            return_value=httpx.Response(200, json={"id": "container_123"})
-        )
+        respx.post(
+            url__startswith="https://graph.threads.net/v1.0/user_123/threads"
+        ).mock(return_value=httpx.Response(200, json={"id": "container_123"}))
 
         async with AsyncThreadsClient(access_token="token") as client:
             from threads.constants import MediaType
@@ -215,7 +229,9 @@ class TestAsyncInsightsClient:
     @respx.mock
     async def test_get_media_insights(self):
         """Test async get media insights."""
-        respx.get(url__startswith="https://graph.threads.net/v1.0/post_123/insights").mock(
+        respx.get(
+            url__startswith="https://graph.threads.net/v1.0/post_123/insights"
+        ).mock(
             return_value=httpx.Response(
                 200,
                 json={
@@ -240,12 +256,18 @@ class TestAsyncRepliesClient:
     @respx.mock
     async def test_get_replies(self):
         """Test async get replies."""
-        respx.get(url__startswith="https://graph.threads.net/v1.0/post_123/replies").mock(
+        respx.get(
+            url__startswith="https://graph.threads.net/v1.0/post_123/replies"
+        ).mock(
             return_value=httpx.Response(
                 200,
                 json={
                     "data": [
-                        {"id": "reply_1", "text": "Reply 1", "timestamp": "2024-01-15T11:00:00+0000"},
+                        {
+                            "id": "reply_1",
+                            "text": "Reply 1",
+                            "timestamp": "2024-01-15T11:00:00+0000",
+                        },
                     ]
                 },
             )
@@ -260,9 +282,9 @@ class TestAsyncRepliesClient:
     @respx.mock
     async def test_hide_reply(self):
         """Test async hide reply."""
-        respx.post(url__startswith="https://graph.threads.net/v1.0/reply_123/manage_reply").mock(
-            return_value=httpx.Response(200, json={"success": True})
-        )
+        respx.post(
+            url__startswith="https://graph.threads.net/v1.0/reply_123/manage_reply"
+        ).mock(return_value=httpx.Response(200, json={"success": True}))
 
         async with AsyncThreadsClient(access_token="token") as client:
             result = await client.replies.hide("reply_123")
@@ -276,9 +298,9 @@ class TestAsyncWebhooksClient:
     @respx.mock
     async def test_subscribe(self):
         """Test async webhook subscribe."""
-        respx.post(url__startswith="https://graph.threads.net/v1.0/me/subscribed_apps").mock(
-            return_value=httpx.Response(200, json={"success": True})
-        )
+        respx.post(
+            url__startswith="https://graph.threads.net/v1.0/me/subscribed_apps"
+        ).mock(return_value=httpx.Response(200, json={"success": True}))
 
         async with AsyncThreadsClient(access_token="token") as client:
             result = await client.webhooks.subscribe(
@@ -291,9 +313,9 @@ class TestAsyncWebhooksClient:
     @respx.mock
     async def test_unsubscribe(self):
         """Test async webhook unsubscribe."""
-        respx.delete(url__startswith="https://graph.threads.net/v1.0/me/subscribed_apps").mock(
-            return_value=httpx.Response(200, json={"success": True})
-        )
+        respx.delete(
+            url__startswith="https://graph.threads.net/v1.0/me/subscribed_apps"
+        ).mock(return_value=httpx.Response(200, json={"success": True}))
 
         async with AsyncThreadsClient(access_token="token") as client:
             result = await client.webhooks.unsubscribe()

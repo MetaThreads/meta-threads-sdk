@@ -117,7 +117,9 @@ class TestAuthClient:
     @respx.mock
     def test_refresh_token_success(self):
         """Test successful token refresh."""
-        respx.get(url__startswith="https://graph.threads.net/v1.0/refresh_access_token").mock(
+        respx.get(
+            url__startswith="https://graph.threads.net/v1.0/refresh_access_token"
+        ).mock(
             return_value=httpx.Response(
                 200,
                 json={
@@ -139,7 +141,9 @@ class TestAuthClient:
     @respx.mock
     def test_refresh_token_error(self):
         """Test token refresh with error."""
-        respx.get(url__startswith="https://graph.threads.net/v1.0/refresh_access_token").mock(
+        respx.get(
+            url__startswith="https://graph.threads.net/v1.0/refresh_access_token"
+        ).mock(
             return_value=httpx.Response(
                 400,
                 json={
