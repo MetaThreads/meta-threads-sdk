@@ -49,9 +49,7 @@ class UsersClient(BaseUsersClient):
         data = response.json()
 
         if response.status_code != 200:
-            logger.error(
-                f"Failed to get user profile: status={response.status_code}"
-            )
+            logger.error(f"Failed to get user profile: status={response.status_code}")
             raise_for_error(data, response.status_code)
 
         logger.info(f"Successfully retrieved profile for user {data.get('id')}")
@@ -86,9 +84,7 @@ class UsersClient(BaseUsersClient):
         data = response.json()
 
         if response.status_code != 200:
-            logger.error(
-                f"Failed to get user profile: status={response.status_code}"
-            )
+            logger.error(f"Failed to get user profile: status={response.status_code}")
             raise_for_error(data, response.status_code)
 
         logger.info(f"Successfully retrieved profile for user {user_id}")
