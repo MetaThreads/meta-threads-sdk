@@ -1,6 +1,6 @@
 [project]
 name = "meta-threads-sdk"
-version = "0.1.0"
+version = "0.2.0"
 description = "Unofficial Python client for Meta's Threads API. Publish posts, reply to conversations, and track insights with Threads automation."
 readme = "README.md"
 license = { text = "MIT" }
