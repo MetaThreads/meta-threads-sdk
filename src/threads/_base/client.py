@@ -90,6 +90,12 @@ class BaseThreadsClient[T](ABC):
         """Get the webhooks client."""
         ...
 
+    @property
+    @abstractmethod
+    def users(self) -> Any:
+        """Get the users client."""
+        ...
+
     @abstractmethod
     def _get_default_params(self) -> dict[str, str]:
         """Get default request parameters including access token."""
