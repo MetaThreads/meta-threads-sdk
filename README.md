@@ -348,8 +348,8 @@ print(f"Remaining posts: {limit.remaining_posts}")
 
 ```bash
 # Clone the repository
-git clone https://github.com/Tsalyk/threads-py.git
-cd threads-py
+git clone https://github.com/MetaThreads/meta-threads-sdk.git
+cd meta-threads-sdk
 
 # Install uv if you haven't
 curl -LsSf https://astral.sh/uv/install.sh | sh

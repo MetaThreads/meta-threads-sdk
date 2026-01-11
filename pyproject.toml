@@ -42,10 +42,10 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/Tsalyk/threads-py"
-Documentation = "https://github.com/Tsalyk/threads-py#readme"
-Repository = "https://github.com/Tsalyk/threads-py"
-Issues = "https://github.com/Tsalyk/threads-py/issues"
+Homepage = "https://github.com/MetaThreads/meta-threads-sdk"
+Documentation = "https://github.com/MetaThreads/meta-threads-sdk#readme"
+Repository = "https://github.com/MetaThreads/meta-threads-sdk"
+Issues = "https://github.com/MetaThreads/meta-threads-sdk/issues"
 
 [build-system]
 requires = ["hatchling"]
