@@ -164,7 +164,7 @@ class TestAsyncUsersClient:
                 "threads_biography",
             ]
 
-            assert client.users.DEFAULT_PROFILE_FIELDS == expected_fields
+            assert expected_fields == client.users.DEFAULT_PROFILE_FIELDS
 
     async def test_extended_profile_fields(self):
         """Test that extended profile fields are set correctly."""
@@ -181,4 +181,4 @@ class TestAsyncUsersClient:
                 "following_count",
             ]
 
-            assert client.users.EXTENDED_PROFILE_FIELDS == expected_fields
+            assert expected_fields == client.users.EXTENDED_PROFILE_FIELDS

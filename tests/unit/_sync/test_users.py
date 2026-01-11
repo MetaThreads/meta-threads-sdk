@@ -171,7 +171,7 @@ class TestUsersClient:
             "threads_biography",
         ]
 
-        assert client.users.DEFAULT_PROFILE_FIELDS == expected_fields
+        assert expected_fields == client.users.DEFAULT_PROFILE_FIELDS
         client.close()
 
     def test_extended_profile_fields(self):
@@ -190,5 +190,5 @@ class TestUsersClient:
             "following_count",
         ]
 
-        assert client.users.EXTENDED_PROFILE_FIELDS == expected_fields
+        assert expected_fields == client.users.EXTENDED_PROFILE_FIELDS
         client.close()
