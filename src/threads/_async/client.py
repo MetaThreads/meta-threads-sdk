@@ -11,6 +11,7 @@ from threads._async.insights import AsyncInsightsClient
 from threads._async.media import AsyncMediaClient
 from threads._async.posts import AsyncPostsClient
 from threads._async.replies import AsyncRepliesClient
+from threads._async.users import AsyncUsersClient
 from threads._async.webhooks import AsyncWebhooksClient
 from threads._base.client import BaseThreadsClient
 from threads._utils.http import build_url
@@ -80,6 +81,7 @@ class AsyncThreadsClient(BaseThreadsClient[httpx.AsyncClient]):
         self._posts = AsyncPostsClient(self)
         self._insights = AsyncInsightsClient(self)
         self._replies = AsyncRepliesClient(self)
+        self._users = AsyncUsersClient(self)
         self._webhooks = AsyncWebhooksClient(self)
 
         logger.info("AsyncThreadsClient initialized successfully")
@@ -120,6 +122,11 @@ class AsyncThreadsClient(BaseThreadsClient[httpx.AsyncClient]):
     def webhooks(self) -> AsyncWebhooksClient:
         """Get the webhooks client."""
         return self._webhooks
+
+    @property
+    def users(self) -> AsyncUsersClient:
+        """Get the users client."""
+        return self._users
 
     def _get_default_params(self) -> dict[str, str]:
         """Get default request parameters."""
