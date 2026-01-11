@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-01-11
+
+### Added
+
+- User profile management
+  - `get_me()`: Retrieve authenticated user's profile
+  - `get(user_id)`: Retrieve any user's profile by ID
+  - Support for custom field selection via the `fields` parameter
+
 ## [0.1.0] - 2025-01-10
 
 ### Added
