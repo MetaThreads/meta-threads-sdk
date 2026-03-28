@@ -59,7 +59,7 @@ jobs:
         run: uv run pytest -v --cov=src/threads --cov-report=xml
 
       - name: Upload coverage
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           files: ./coverage.xml
           fail_ci_if_error: false
@@ -86,7 +86,7 @@ jobs:
         run: uv run python -m twine check dist/*
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: dist
           path: dist/
